@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/training', fn() => Inertia::render('Employee/Training'))->name('employee.training');
         Route::get('/tasks', fn() => Inertia::render('Employee/Tasks'))->name('employee.tasks');
         Route::get('/team', fn() => Inertia::render('Employee/Team'))->name('employee.team');
-        Route::get('/consumables', fn() => Inertia::render('Employee/Consumables'))->name('employee.consumables');
+        Route::get('/materielattribue', fn() => Inertia::render('Employee/MaterielAttribue'))->name('employee.MaterielAttribue');
     });
 });
 

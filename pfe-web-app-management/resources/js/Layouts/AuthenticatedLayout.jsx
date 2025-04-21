@@ -11,14 +11,7 @@ export default function AuthenticatedLayout({ header, children }) {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            {/* Enlève ce nav si tu utilises AuthenticatedNavbar à la place */}
-            {/* Tu peux aussi fusionner les deux si besoin */}
-            {/* <nav className="bg-white shadow p-4">
-                <div className="max-w-7xl mx-auto flex justify-between">
-                    <span className="text-lg font-bold">App</span>
-                    <span className="text-sm">Bienvenue</span>
-                </div>
-            </nav> */}
+           
 
             {/* ✅ Navbar employé */}
             <AuthenticatedNavbar user={user} />

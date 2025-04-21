@@ -34,14 +34,14 @@ export default function Login({ status, canResetPassword }) {
             <form onSubmit={submit}>
                 {/*  Champ login */}
                 <div>
-                    <InputLabel htmlFor="login" value="Nom d'utilisateur ou Email" />
+                    <InputLabel htmlFor="login" value="Nom d'utilisateur ou Email"  />
 
                     <TextInput
                         id="login"
                         type="text"
                         name="login"
                         value={data.login}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full bg-gray-200"
                         autoComplete="username"
                         isFocused={true}
                         onChange={(e) => setData('login', e.target.value)}
@@ -59,7 +59,7 @@ export default function Login({ status, canResetPassword }) {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full bg-gray-200"
                         autoComplete="current-password"
                         onChange={(e) => setData('password', e.target.value)}
                     />
@@ -88,7 +88,7 @@ export default function Login({ status, canResetPassword }) {
                     <div className="flex gap-4 text-sm">
                         <Link
                             href={route('register')}
-                            className="text-blue-600 hover:underline"
+                            className="text-blue-600 hover:underline w-1/3"
                         >
                             Créer un compte
                         </Link>
