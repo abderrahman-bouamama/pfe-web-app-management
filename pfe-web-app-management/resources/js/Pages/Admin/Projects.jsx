@@ -1,65 +1,165 @@
-import React from 'react';
-import { Head, Link } from '@inertiajs/react';
+import React, { useState } from 'react';
+import { Head, usePage, router } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
+import CreateProjectForm from './Components/CreateProjectForm';
 
 const Projects = () => {
-    const fakeProjects = [
-        {
-            id: 1,
-            name: "Projet Alpha",
-            manager: "Mme Zahra",
-            status: "En cours",
-            start: "2024-10-01",
-            end: "2025-03-30",
-        },
-        {
-            id: 2,
-            name: "Projet Beta",
-            manager: "M. Yassine",
-            status: "Terminé",
-            start: "2024-01-01",
-            end: "2024-06-15",
-        },
-    ];
+    const { projects, users, clients } = usePage().props; // ✅ importer clients
+    const [editProject, setEditProject] = useState(null);
+    const [confirmDeleteId, setConfirmDeleteId] = useState(null);
+
+    const handleDelete = (id) => {
+        if (confirm('Êtes-vous sûr de vouloir supprimer ce projet ?')) {
+            router.delete(route('admin.projects.destroy', id));
+        }
+    };
+
+    const handleEditChange = (e) => {
+        setEditProject({ ...editProject, [e.target.name]: e.target.value });
+    };
+
+    const handleEditSubmit = (e) => {
+        e.preventDefault();
+        router.put(route('admin.projects.update', editProject.id), editProject, {
+            onSuccess: () => setEditProject(null),
+        });
+    };
 
     return (
         <AdminLayout>
             <Head title="Gestion des projets" />
-            <div className="p-6">
-                <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-bold text-gray-800">Liste des projets</h1>
-                    <Link
-                        href="#"
-                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                    >
-                        + Nouveau Projet
-                    </Link>
+            <div className="p-6 max-w-7xl mx-auto">
+                <h1 className="text-2xl font-bold text-gray-800 mb-6">Liste des projets</h1>
+
+                <div className="mb-6">
+                    <CreateProjectForm users={users} clients={clients} />
                 </div>
 
                 <div className="overflow-x-auto bg-white shadow rounded-lg">
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-100">
                             <tr>
-                                <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Nom</th>
-                                <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Responsable</th>
-                                <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Statut</th>
-                                <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Début</th>
-                                <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Fin</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700 text-right">Actions</th>
+                                <th className="px-6 py-3 text-left">Nom</th>
+                                <th className="px-6 py-3 text-left">Responsable</th>
+                                <th className="px-6 py-3 text-left">Client</th>
+                                <th className="px-6 py-3 text-left">Statut</th>
+                                <th className="px-6 py-3 text-left">Début</th>
+                                <th className="px-6 py-3 text-left">Fin</th>
+                                <th className="px-6 py-3 text-right">Actions</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200">
-                            {fakeProjects.map((project) => (
+                            {projects.map((project) => (
                                 <tr key={project.id}>
-                                    <td className="px-6 py-4 text-sm">{project.name}</td>
-                                    <td className="px-6 py-4 text-sm">{project.manager}</td>
-                                    <td className="px-6 py-4 text-sm">{project.status}</td>
-                                    <td className="px-6 py-4 text-sm">{project.start}</td>
-                                    <td className="px-6 py-4 text-sm">{project.end}</td>
-                                    <td className="px-6 py-4 text-right space-x-2">
-                                        <button className="px-3 py-1 bg-yellow-400 text-white rounded">Modifier</button>
-                                        <button className="px-3 py-1 bg-red-500 text-white rounded">Supprimer</button>
-                                    </td>
+                                    {editProject?.id === project.id ? (
+                                        <>
+                                            <td className="px-6 py-4">
+                                                <input
+                                                    type="text"
+                                                    name="title"
+                                                    value={editProject.title}
+                                                    onChange={handleEditChange}
+                                                    className="w-full border rounded"
+                                                />
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <select
+                                                    name="responsible_id"
+                                                    value={editProject.responsible_id || ''}
+                                                    onChange={handleEditChange}
+                                                    className="w-full border rounded"
+                                                >
+                                                    <option value="">-- Choisir --</option>
+                                                    {users.map(user => (
+                                                        <option key={user.id} value={user.id}>{user.name}</option>
+                                                    ))}
+                                                </select>
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <select
+                                                    name="client_id"
+                                                    value={editProject.client_id || ''}
+                                                    onChange={handleEditChange}
+                                                    className="w-full border rounded"
+                                                >
+                                                    <option value="">-- Choisir un client --</option>
+                                                    {clients.map(client => (
+                                                        <option key={client.id} value={client.id}>
+                                                            {client.name}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <select
+                                                    name="status"
+                                                    value={editProject.status}
+                                                    onChange={handleEditChange}
+                                                    className="w-full border rounded"
+                                                >
+                                                    <option value="En attente">En attente</option>
+                                                    <option value="En cours">En cours</option>
+                                                    <option value="Terminé">Terminé</option>
+                                                    <option value="Annulé">Annulé</option>
+                                                </select>
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <input
+                                                    type="date"
+                                                    name="start_date"
+                                                    value={editProject.start_date}
+                                                    onChange={handleEditChange}
+                                                    className="w-full border rounded"
+                                                />
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <input
+                                                    type="date"
+                                                    name="end_date"
+                                                    value={editProject.end_date}
+                                                    onChange={handleEditChange}
+                                                    className="w-full border rounded"
+                                                />
+                                            </td>
+                                            <td className="px-6 py-4 text-right space-x-2">
+                                                <button
+                                                    onClick={handleEditSubmit}
+                                                    className="px-3 py-1 bg-blue-600 text-white rounded"
+                                                >
+                                                    Sauvegarder
+                                                </button>
+                                                <button
+                                                    onClick={() => setEditProject(null)}
+                                                    className="px-3 py-1 bg-gray-400 text-white rounded"
+                                                >
+                                                    Annuler
+                                                </button>
+                                            </td>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <td className="px-6 py-4 text-sm">{project.title}</td>
+                                            <td className="px-6 py-4 text-sm">{project.responsible?.name || '—'}</td>
+                                            <td className="px-6 py-4 text-sm">{project.client?.name || '—'}</td>
+                                            <td className="px-6 py-4 text-sm">{project.status}</td>
+                                            <td className="px-6 py-4 text-sm">{project.start_date}</td>
+                                            <td className="px-6 py-4 text-sm">{project.end_date}</td>
+                                            <td className="px-6 py-4 text-right flex justify-end gap-2">
+                                                <button
+                                                    onClick={() => setEditProject(project)}
+                                                    className="px-3 py-1 bg-green-600 text-white rounded"
+                                                >
+                                                    Modifier
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDelete(project.id)}
+                                                    className="px-3 py-1 bg-red-500 text-white rounded"
+                                                >
+                                                    Supprimer
+                                                </button>
+                                            </td>
+                                        </>
+                                    )}
                                 </tr>
                             ))}
                         </tbody>

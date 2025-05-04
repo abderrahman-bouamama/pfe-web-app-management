@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Smartlink') }}</title>
+        <title inertia>{{ config('app.name', 'Digital Solutions') }}</title>
         
         <link rel="icon" type="image/x-ico" sizes="32x32" href="{{ asset('favicon.ico') }}">
         

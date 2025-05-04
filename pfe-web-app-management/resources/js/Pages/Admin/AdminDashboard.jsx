@@ -1,39 +1,10 @@
 import React from 'react';
-import { Head } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import { FaUsers, FaProjectDiagram, FaUserTie, FaPhone } from 'react-icons/fa';
 
 export default function AdminDashboard() {
-    const stats = {
-        clients: 52,
-        projects: 12,
-        personnels: 18,
-        chefsProjet: 4,
-    };
-
-    const projects = [
-        {
-            id: 1,
-            name: "Projet site web e-commerce en faveur de bceII",
-            chef: "Mme Zahra",
-            status: "En cours",
-            contact: "+212 600-123456"
-        },
-        {
-            id: 2,
-            name: "Projet dashboard admin en faveur de TIEC",
-            chef: "M. Yassine",
-            status: "Terminé",
-            contact: "+212 611-654321"
-        },
-        {
-            id: 3,
-            name: "Projet application web société somero SARL",
-            chef: "Mme Salma",
-            status: "En attente",
-            contact: "+212 677-888999"
-        }
-    ];
+    const { stats, projects } = usePage().props;
 
     return (
         <AdminLayout>

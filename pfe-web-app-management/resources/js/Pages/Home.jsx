@@ -24,7 +24,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-50 z-0"
+                    className="absolute inset-0 w-full h-full object-cover z-0"
                 >
                     <source src="/videos/HeroVideo.mp4" type="video/mp4" />
                     Votre navigateur ne supporte pas la vidéo.
@@ -34,7 +34,7 @@ export default function Home() {
                 <div className="relative container mx-auto px-4 text-center z-10 mt-24 pt-24">
                     <Link
                         href="/contact"
-                        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 mt-32"
+                        className="inline-block bg-orange-400 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 mt-32"
                     >
                         Obtenez votre solution personnalisée →
                     </Link>

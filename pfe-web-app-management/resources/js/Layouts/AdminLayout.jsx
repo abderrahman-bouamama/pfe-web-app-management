@@ -108,7 +108,7 @@ export default function AdminLayout({ children }) {
 
                     <div className="flex items-center gap-10">
                         <img
-                            src="/images/logo.png"
+                            src="/images/logo-usersoace.jpg"
                             alt="Employé"
                             className="w-10 h-10 rounded-full border-2 border-sky-600 object-cover"
                         />

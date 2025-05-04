@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 
 export default function AboutSection() {
     return (
-        <section className="py-16 bg-gray-500 pt-28">
+        <section className="py-16 bg-orange-400 pt-28">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row">
                     {/* Texte à gauche */}
@@ -15,7 +15,7 @@ export default function AboutSection() {
                                 <br />
                                  
                                 
-                            🌐 Chez <span className='uppercase text-sky-800'>Smartlink Industry </span> 
+                            🌐 Chez <span className='uppercase text-sky-800'>DIGITAL SOLUTIONS </span> 
                                 Nous accompagnons les entreprises dans leur transition numérique en intégrant des technologies avancées, parfaitement adaptées à leurs besoins spécifiques.
                                 Qu’il s’agisse d’automatiser les chaînes de production, d’optimiser la gestion des données ou de renforcer la traçabilité, nous concevons des solutions sur mesure pour relever les défis actuels et futurs de l’industrie 4.0.<br /><br/>
                                 🌐 Nous plaçons l’humain, la performance et l’innovation au cœur de notre démarche.
@@ -30,7 +30,7 @@ export default function AboutSection() {
 
                             <Link
                                 href="/services"
-                                className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
+                                className="mt-6 inline-block px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-orange-800 transition"
                             >
                                 Découvrez nos services →
                             </Link>

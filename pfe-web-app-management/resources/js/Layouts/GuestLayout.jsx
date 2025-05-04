@@ -12,7 +12,7 @@ export default function GuestLayout({ children }) {
                 <div className=" bg-white rounded-full">
                 <Link href="/" >
                     <img
-                        src="/images/userspacelogo.png" // 
+                            src="/images/logo-usersoace.jpg" // 
                         alt="smarthlinkIndustry"
                         className="rounded-full h-36"
                     />
