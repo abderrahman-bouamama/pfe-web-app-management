@@ -52,11 +52,11 @@ const projects = [
 const ProjectsSection = () => {
     return (
         
-        <section className="py-24 bg-gray-100 dark:bg-gray-900 transition-colors">
+        <section className="py-24 bg-amber-400 dark:bg-orange-400 transition-colors">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold text-gray-900 dark:text-white uppercase">Nos Réalisations</h1>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mt-2 max-w-xl mx-auto">
+                    <p className="text-lg text-gray-300 dark:text-black mt-2 max-w-xl mx-auto">
                         Découvrez nos projets récents et notre expertise en développement
                     </p>
                 </div>
@@ -77,17 +77,17 @@ const ProjectsSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl h-full"
+                                className="bg-amber-500 dark:bg-yellow-300 p-6 rounded-2xl shadow-xl h-full"
                             >
                                 <img
                                     src={project.image}
                                     alt={project.title}
                                     className="w-full h-48 object-cover rounded-xl mb-4"
                                 />
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                                <h3 className="text-xl font-semibold text-gray-800 dark:text-black mb-2">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-300 mb-3">
+                                <p className="text-gray-600 dark:text-gray-900 mb-3">
                                     {project.description}
                                 </p>
                                 <div className="flex flex-wrap gap-2 mb-4">
@@ -111,7 +111,7 @@ const ProjectsSection = () => {
                 <div className="text-center mt-12">
                     <Link
                         href="/contact"
-                        className="inline-block px-8 py-3 bg-gray-800 text-white dark:text-sky-300 rounded-lg hover:bg-gray-700"
+                        className="inline-block px-8 py-3 bg-orange-800 text-black dark:text-white rounded-lg hover:bg-amber-700"
                     >
                         Parlez-nous de votre projet →
                     </Link>

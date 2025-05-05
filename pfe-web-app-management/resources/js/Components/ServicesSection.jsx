@@ -25,7 +25,7 @@ const Services = () => {
 
     return (
         
-        <section className="py-16 bg-slate-400 pt-28">
+        <section className="py-16 bg-yellow-300 pt-28">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 uppercase">
@@ -61,7 +61,7 @@ const Services = () => {
                     <div className="text-center mt-12">
                         <a
                             href="/projects"
-                            className="inline-block px-8 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300"
+                            className="inline-block px-8 py-3 bg-red-500 text-white font-medium rounded-md hover:bg-orange-600 transition-colors duration-300"
                         >
                             Découvrez nos projets →
                         </a>

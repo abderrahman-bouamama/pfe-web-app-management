@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactSection = () => {
     return (
-        <section className="py-16 bg-gray-600 pt-28">
+        <section className="py-16 bg-amber-500 pt-28">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-200 mb-4 uppercase">Contactez-nous</h2>
@@ -11,7 +11,7 @@ const ContactSection = () => {
                     </p>
                 </div>
 
-                <div className="max-w-3xl mx-auto bg-gray-400 p-8 shadow-md rounded-lg">
+                <div className="max-w-3xl mx-auto bg-yellow-500 p-8 shadow-md rounded-lg">
                     <form>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>

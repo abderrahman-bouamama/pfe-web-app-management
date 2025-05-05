@@ -9,13 +9,13 @@ export default function AboutSection() {
                     {/* Texte à gauche */}
                     <div className="w-full md:w-1/2 pr-0 md:pr-8">
                         <div className="mb-8">
-                            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase">À propos de nous</h1>
-                            <h3 className='text-gray-800 uppercase font-poppins'>Accélérez votre Transformation Digitale Industrielle</h3>
-                            <p className="text-slate-800 mb-6 leading-relaxed">
+                            <h1 className="text-3xl md:text-4xl font-bold text-black mb-4 uppercase">À propos de nous</h1>
+                            <h3 className='text-black uppercase font-poppins'>Accélérez votre Transformation Digitale Industrielle</h3>
+                            <p className="text-black mb-6 leading-relaxed">
                                 <br />
                                  
                                 
-                            🌐 Chez <span className='uppercase text-sky-800'>DIGITAL SOLUTIONS </span> 
+                            🌐 Chez <span className='uppercase text-sky-800 text-lg'>DIGITAL SOLUTIONS </span> 
                                 Nous accompagnons les entreprises dans leur transition numérique en intégrant des technologies avancées, parfaitement adaptées à leurs besoins spécifiques.
                                 Qu’il s’agisse d’automatiser les chaînes de production, d’optimiser la gestion des données ou de renforcer la traçabilité, nous concevons des solutions sur mesure pour relever les défis actuels et futurs de l’industrie 4.0.<br /><br/>
                                 🌐 Nous plaçons l’humain, la performance et l’innovation au cœur de notre démarche.
@@ -30,7 +30,7 @@ export default function AboutSection() {
 
                             <Link
                                 href="/services"
-                                className="mt-6 inline-block px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-orange-800 transition"
+                                className="mt-6 inline-block px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-orange-600 transition"
                             >
                                 Découvrez nos services →
                             </Link>

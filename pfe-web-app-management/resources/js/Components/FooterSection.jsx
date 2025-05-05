@@ -7,7 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 export default function FooterSection() {
     return (
-        <footer className="bg-gray-900 text-white py-12">
+        <footer className="bg-amber-800 text-white py-12">
             <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
                 {/* Navigation links */}
                 <div className='flex flex-col items-start'>
@@ -87,7 +87,7 @@ export default function FooterSection() {
                 </div>
             </div>
 
-            <div className="text-center text-gray-400 text-sm mt-12">
+            <div className="text-center text-black text-lg mt-12">
                 © {new Date().getFullYear()} Smartlink Industry. Tous droits réservés.
             </div>
         </footer>
