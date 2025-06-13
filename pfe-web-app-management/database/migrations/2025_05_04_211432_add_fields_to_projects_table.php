@@ -10,6 +10,10 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             if (!Schema::hasColumn('projects', 'description')) {
+                $table->text('description')->nullable()->after('name');
+            }
+            
+            if (!Schema::hasColumn('projects', 'description')) {
                 $table->text('description')->nullable()->after('title');
             }
 

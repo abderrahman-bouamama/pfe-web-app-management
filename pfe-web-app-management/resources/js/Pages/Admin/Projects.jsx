@@ -4,7 +4,7 @@ import AdminLayout from '@/Layouts/AdminLayout';
 import CreateProjectForm from './Components/CreateProjectForm';
 
 const Projects = () => {
-    const { projects, users, clients } = usePage().props; // ✅ importer clients
+    const { projects, users, clients } = usePage().props; 
     const [editProject, setEditProject] = useState(null);
     const [confirmDeleteId, setConfirmDeleteId] = useState(null);
 
