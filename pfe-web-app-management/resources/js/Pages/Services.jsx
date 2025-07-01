@@ -1,5 +1,5 @@
 import React from "react";
-import PublicLayout from '@/Layouts/PublicLayout';
+import PublicLayout from '@/Pages/Layouts/PublicLayout';
 import ServicesSection from '@/Components/ServicesSection';
 
 const Services = () => {

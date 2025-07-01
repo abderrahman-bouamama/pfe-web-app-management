@@ -3,12 +3,12 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
+import GuestLayout from '@/Pages/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
-        login: '', 
+        login: '',
         password: '',
         remember: false,
     });
@@ -34,7 +34,7 @@ export default function Login({ status, canResetPassword }) {
             <form onSubmit={submit}>
                 {/*  Champ login */}
                 <div>
-                    <InputLabel htmlFor="login" value="Nom d'utilisateur ou Email"  />
+                    <InputLabel htmlFor="login" value="Nom d'utilisateur ou Email" />
 
                     <TextInput
                         id="login"

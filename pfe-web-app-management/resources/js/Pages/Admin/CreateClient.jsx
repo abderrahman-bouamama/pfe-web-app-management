@@ -1,7 +1,7 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
-import AdminLayout from '@/Layouts/AdminLayout';
-import CreateClientForm from './Components/CreateClientForm';
+import AdminLayout from '@/Pages/Layouts/AdminLayout';
+import CreateClientForm from './CreateClientForm';
 
 const CreateClient = () => {
     return (

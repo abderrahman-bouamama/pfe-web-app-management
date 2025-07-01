@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AuthenticatedLayout from '@/Pages/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { FaToolbox, FaExchangeAlt } from 'react-icons/fa';
 

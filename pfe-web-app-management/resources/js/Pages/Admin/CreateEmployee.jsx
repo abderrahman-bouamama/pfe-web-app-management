@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, Head, Link } from '@inertiajs/react';
-import AdminLayout from '@/Layouts/AdminLayout';
+import AdminLayout from '@/Pages/Layouts/AdminLayout';
 
 export default function CreateEmployee() {
     const { data, setData, post, processing, errors } = useForm({

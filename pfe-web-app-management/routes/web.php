@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,16 +53,20 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
   
     
     Route::get('/employees', [UserController::class, 'index'])->name('employees');
+    
 
-    Route::get('/tasks', fn() => Inertia::render('Admin/Tasks'))->name('tasks');
+    
     Route::get('/trainings', fn() => Inertia::render('Admin/Trainings'))->name('trainings');
     Route::get('/certificates', fn() => Inertia::render('Admin/Certificates'))->name('certificates');
 
     // Projets
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+    Route::get('/projects/Components/CreateProjectForm', [ProjectController::class, 'create'])->name('projects.create');
     Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
     Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
     Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+
 
     // Utilisateurs
     Route::get('/users', [UserController::class, 'index'])->name('users');
@@ -72,6 +77,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');
     Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
     Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+    //Tasks
+   
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
+    Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+
+
+
 });
 
 

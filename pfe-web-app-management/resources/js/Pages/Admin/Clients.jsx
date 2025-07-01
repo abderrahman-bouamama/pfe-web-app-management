@@ -1,6 +1,6 @@
 import React from "react";
 import { Head, usePage, Link } from "@inertiajs/react";
-import AdminLayout from "@/Layouts/AdminLayout";
+import AdminLayout from "@/Pages/Layouts/AdminLayout";
 
 const Clients = () => {
     const { clients } = usePage().props;

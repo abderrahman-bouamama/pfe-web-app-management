@@ -1,6 +1,6 @@
 import React from 'react';
 import { Head, usePage } from '@inertiajs/react';
-import AdminLayout from '@/Layouts/AdminLayout';
+import AdminLayout from '@/Pages/Layouts/AdminLayout';
 import { FaUsers, FaProjectDiagram, FaUserTie, FaPhone } from 'react-icons/fa';
 
 export default function AdminDashboard() {
