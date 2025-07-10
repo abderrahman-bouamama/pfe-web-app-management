@@ -20,28 +20,22 @@ return new class extends Migration
                 if (!Schema::hasColumn('tasks', 'project')) {
                     $table->text('project')->nullable()->after('title');
                 }
-    
-                if (!Schema::hasColumn('tasks', 'descritpion')) {
-                    $table->date('descritpion')->after('project');
-                }
-    
-                if (!Schema::hasColumn('tasks', 'start_date')) {
-                    $table->date('start_date')->after('descritpion');
-                }
-    
-                if (!Schema::hasColumn('tasks', 'end_date')) {
-                    $table->string('end_date')->after('start_date');
-                }
-                if (!Schema::hasColumn('tasks', 'status')) {
-                    $table->string('status')->nullable()->after('end_date');
-                }
-    
                 if (!Schema::hasColumn('tasks', 'responsible_id')) {
                     $table->foreignId('responsible_id')
                           ->nullable()
                           ->constrained('users')
-                          ->nullOnDelete();
+                          ->nullOnDelete()->after('project');
                 }
+                if (!Schema::hasColumn('tasks', 'status')) {
+                    $table->string('status')->nullable()->after('responsible_id');
+                }
+    
+                if (!Schema::hasColumn('tasks', 'descritpion')) {
+                    $table->date('descritpion');
+                }
+
+    
+              
     
                 
             });

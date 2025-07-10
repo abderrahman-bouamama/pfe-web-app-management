@@ -78,7 +78,7 @@ export default function Login({ status, canResetPassword }) {
                             }
                         />
                         <span className="ms-2 text-sm text-gray-600">
-                            Se souvenir de moi
+                            Se souvenir de moi 
                         </span>
                     </label>
                 </div>

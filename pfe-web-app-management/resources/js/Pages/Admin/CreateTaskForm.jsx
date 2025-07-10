@@ -5,11 +5,9 @@ export default function CreateTaskForm({ projects, users }) {
     const { data, setData, post, processing, reset } = useForm({
         title: '',
         project_id: '',
-        description: '',
-        start_date: '',
-        end_date: '',
+        user_id: '',
         status: 'En attente',
-        responsible_id: '',
+        description: '',
     });
 
     const submit = (e) => {
@@ -25,7 +23,7 @@ export default function CreateTaskForm({ projects, users }) {
                 <input
                     type="text"
                     name="title"
-                    placeholder="Nom interne du projet"
+                    placeholder="Nom interne de la tâche"
                     value={data.title}
                     onChange={e => setData('title', e.target.value)}
                     className="border px-3 py-2 rounded w-full"
@@ -41,42 +39,6 @@ export default function CreateTaskForm({ projects, users }) {
                         <option key={project.id} value={project.id}>{project.title}</option>
                     ))}
                 </select>
-
-                <textarea
-                    name="description"
-                    placeholder="Description"
-                    value={data.description}
-                    onChange={e => setData('description', e.target.value)}
-                    className="border px-3 py-2 rounded w-full"
-                ></textarea>
-                <input
-                    type="text"
-                    name="start_date"
-                    placeholder="Nom interne du projet"
-                    value={data.start_date}
-                    onChange={e => setData('start_date', e.target.value)}
-                    className="border px-3 py-2 rounded w-full"
-                />
-                <input
-                    type="text"
-                    name="end_date"
-                    placeholder="Nom interne du projet"
-                    value={data.end_date}
-                    onChange={e => setData('end_date', e.target.value)}
-                    className="border px-3 py-2 rounded w-full"
-                />
-                <select
-                    name="status"
-                    value={data.status}
-                    onChange={e => setData('status', e.target.value)}
-                    className="border px-3 py-2 rounded w-full"
-                >
-                    <option value="En attente">En attente</option>
-                    <option value="En cours">En cours</option>
-                    <option value="Terminé">Terminé</option>
-                    <option value="Annulé">Annulé</option>
-                </select>
-               
                 <select
                     name="responsible_id"
                     value={data.responsible_id}
@@ -88,6 +50,27 @@ export default function CreateTaskForm({ projects, users }) {
                         <option key={user.id} value={user.id}>{user.name}</option>
                     ))}
                 </select>
+                <select
+                    name="status"
+                    value={data.status}
+                    onChange={e => setData('status', e.target.value)}
+                    className="border px-3 py-2 rounded w-full"
+                >
+                    <option value="En attente">En attente</option>
+                    <option value="En cours">En cours</option>
+                    <option value="Terminé">Terminé</option>
+                    <option value="Annulé">Annulé</option>
+                </select>
+
+                <textarea
+                    name="description"
+                    placeholder="Description"
+                    value={data.description}
+                    onChange={e => setData('description', e.target.value)}
+                    className="border px-3 py-2 rounded w-full"
+                ></textarea>
+               
+               
         
 
             </div>
@@ -97,7 +80,7 @@ export default function CreateTaskForm({ projects, users }) {
                     disabled={processing}
                     className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
                 >
-                    {processing ? 'Enregistrement...' : 'Créer Projet'}
+                    {processing ? 'Enregistrement...' : 'Créer tâche'}
                 </button>
             </div>
         </form>

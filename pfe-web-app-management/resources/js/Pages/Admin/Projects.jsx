@@ -34,7 +34,7 @@ const Projects = () => {
 
                 <div className="flex justify-end mb-4">
                     <Link
-                        href={route('admin.projects.create')} // Assure-toi que cette route existe dans Laravel
+                        href={route('admin.projects.create')} 
                         className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded"
                     >
                         + Nouveau projet

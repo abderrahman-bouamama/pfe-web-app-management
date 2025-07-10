@@ -11,17 +11,17 @@ use Inertia\Inertia;
 
 class TaskController extends Controller
 {
-    // Afficher la page des tâches (liste)
+    // Liste des tâches
     public function index()
-{
-    return Inertia::render('Admin/Tasks', [
-        'tasks' => Task::with(['project', 'responsible'])->get(),
-        'projects' => Project::select('id', 'title')->get(),
-        'users' => User::select('id', 'name')->get(),
-    ]);
-}
+    {
+        return Inertia::render('Admin/Tasks', [
+            'tasks' => Task::with(['project:id,title', 'user:id,name'])->get(),
+            'projects' => Project::select('id', 'title')->get(),
+            'users' => User::select('id', 'name')->get(),
+        ]);
+    }
 
-    // Afficher le formulaire de création
+    // Formulaire de création
     public function create()
     {
         return Inertia::render('Admin/CreateTaskForm', [
@@ -30,21 +30,44 @@ class TaskController extends Controller
         ]);
     }
 
-    // Enregistrer une tâche
+    // Enregistrement d'une nouvelle tâche
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
             'status' => 'required|string',
             'project_id' => 'required|exists:projects,id',
-            'responsible_id' => 'nullable|exists:users,id',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         Task::create($validated);
 
-        return redirect()->route('admin.tasks')->with('success', 'Tâche créée avec succès.');
+        return redirect()->route('admin.tasks.index')->with('success', 'Tâche créée avec succès.');
+    }
+
+    // Mise à jour d'une tâche
+    public function update(Request $request, Task $task)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'status' => 'required|string',
+            'project_id' => 'required|exists:projects,id',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        $task->update($validated);
+
+        return redirect()->route('admin.tasks.index')->with('success', 'Tâche mise à jour avec succès.');
+    }
+
+    // Suppression d'une tâche
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return redirect()->route('admin.tasks.index')->with('success', 'Tâche supprimée.');
     }
 }
