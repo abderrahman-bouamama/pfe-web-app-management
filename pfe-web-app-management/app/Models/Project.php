@@ -10,6 +10,7 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'title',
         'description',
         'start_date',
@@ -28,6 +29,11 @@ class Project extends Model
     {
         return $this->hasMany(Task::class);
     }
+    public function client()
+{
+    return $this->belongsTo(Client::class);
+}
+
 
 }
 

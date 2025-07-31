@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, Head, Link } from '@inertiajs/react';
-import AdminLayout from '@/Layouts/AdminLayout';
+import AdminLayout from '@/Pages/Layouts/AdminLayout';
 
 export default function CreateEmployee() {
     const { data, setData, post, processing, errors } = useForm({
@@ -23,6 +23,7 @@ export default function CreateEmployee() {
                 <h1 className="text-2xl font-bold mb-6">Ajouter un employé</h1>
                 <form onSubmit={submit} className="space-y-4">
                     <div>
+                        <label htmlFor="">Nom de l'employer</label>
                         <input
                             type="text"
                             value={data.name}
@@ -33,6 +34,7 @@ export default function CreateEmployee() {
                         {errors.name && <div className="text-red-500 text-sm">{errors.name}</div>}
                     </div>
                     <div>
+                        <label htmlFor="">E-mail de l'employer</label>
                         <input
                             type="email"
                             value={data.email}
@@ -43,6 +45,7 @@ export default function CreateEmployee() {
                         {errors.email && <div className="text-red-500 text-sm">{errors.email}</div>}
                     </div>
                     <div>
+                        <label htmlFor="">Rôle</label>
                         <select
                             value={data.role}
                             onChange={e => setData('role', e.target.value)}
@@ -55,6 +58,7 @@ export default function CreateEmployee() {
                         {errors.role && <div className="text-red-500 text-sm">{errors.role}</div>}
                     </div>
                     <div>
+                        <label htmlFor="">Mot de passe</label>
                         <input
                             type="password"
                             value={data.password}
@@ -65,6 +69,7 @@ export default function CreateEmployee() {
                         {errors.password && <div className="text-red-500 text-sm">{errors.password}</div>}
                     </div>
                     <div>
+                        <label htmlFor="">Confirmation mot de passe</label>
                         <input
                             type="password"
                             value={data.password_confirmation}

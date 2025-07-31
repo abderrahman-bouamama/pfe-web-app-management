@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Head } from '@inertiajs/react';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AuthenticatedLayout from '@/Pages/Layouts/AuthenticatedLayout';
 import { FaTasks, FaCode, FaCheck, FaSearch } from 'react-icons/fa';
 
 const statusIcons = {

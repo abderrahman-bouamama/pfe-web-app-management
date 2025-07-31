@@ -3,13 +3,14 @@ import { useForm } from '@inertiajs/react';
 
 export default function CreateProjectForm({ users, clients }) {
     const { data, setData, post, processing, errors, reset } = useForm({
+        name: '',
         title: '',
         description: '',
         start_date: '',
         end_date: '',
         status: 'En attente',
         responsible_id: '',
-        client_id: '', // ✅ Ajouter client_id
+        client_id: '', 
     });
 
     const submit = (e) => {
@@ -22,6 +23,14 @@ export default function CreateProjectForm({ users, clients }) {
     return (
         <form onSubmit={submit} className="bg-white p-4 rounded shadow space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Nom interne du projet"
+                    value={data.name}
+                    onChange={e => setData('name', e.target.value)}
+                    className="border px-3 py-2 rounded w-full"
+                />
                 <input
                     type="text"
                     name="title"

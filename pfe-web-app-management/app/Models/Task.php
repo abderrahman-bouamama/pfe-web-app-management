@@ -11,22 +11,26 @@ class Task extends Model
 
     protected $fillable = [
         'title',
-        'description',
         'status',
         'project_id',
-        'assigned_to',
+        'user_id',
     ];
+    
 
-    // Une tâche appartient à un projet
+   
     public function project()
     {
         return $this->belongsTo(Project::class);
     }
 
-    // Une tâche est assignée à un utilisateur
+    
     public function employee()
     {
         return $this->belongsTo(User::class, 'assigned_to');
+    }
+    public function responsible()
+    {
+        return $this->belongsTo(User::class, 'responsible_id');
     }
 }
 

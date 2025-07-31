@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Head, usePage } from '@inertiajs/react';
-import AdminLayout from '@/Layouts/AdminLayout';
+import AdminLayout from '@/Pages/Layouts/AdminLayout';
 
 export default function Employees() {
     const { users = [] } = usePage().props;

@@ -51,11 +51,11 @@ const projects = [
 
 const ProjectsSection = () => {
     return (
-        <section className="py-24 bg-gray-100 dark:bg-gray-900 transition-colors">
+        <section className="py-24 bg-orange-300 dark:bg-yellow-400 transition-colors">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white uppercase">Nos Réalisations</h1>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mt-2 max-w-xl mx-auto">
+                    <h1 className="text-4xl font-bold text-gray-900 dark:text-black uppercase">Nos Réalisations</h1>
+                    <p className="text-lg text-gray-600 dark:text-black mt-2 max-w-xl mx-auto">
                         Découvrez nos projets récents et notre expertise en développement
                     </p>
                 </div>

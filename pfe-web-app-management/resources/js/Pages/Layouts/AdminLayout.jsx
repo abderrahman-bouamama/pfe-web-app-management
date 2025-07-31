@@ -9,6 +9,7 @@ export default function AdminLayout({ children }) {
     const navLinks = [
         { name: 'Dashboard', href: '/admin/dashboard' },
         { name: 'Gestion des employés', href: route('admin.employees') },
+        { name: 'Gestion des Clients', href: route('admin.clients') },
         { name: 'Gestion des projets', href: route('admin.projects') },
         { name: 'Gérer les tâches', href: route('admin.tasks') },
         { name: 'Gérer les formations', href: route('admin.trainings') },

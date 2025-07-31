@@ -88,7 +88,7 @@ export default function FooterSection() {
             </div>
 
             <div className="text-center text-black text-lg mt-12">
-                © {new Date().getFullYear()} Smartlink Industry. Tous droits réservés.
+                © {new Date().getFullYear()} Digital solutions. Tous droits réservés.
             </div>
         </footer>
     );

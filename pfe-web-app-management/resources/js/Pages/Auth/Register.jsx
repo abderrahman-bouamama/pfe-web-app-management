@@ -2,7 +2,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
+import GuestLayout from '@/Pages/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Register() {
@@ -11,7 +11,7 @@ export default function Register() {
         email: '',
         matricule: '',
         password: '',
-        password_confirmation: '',        
+        password_confirmation: '',
     });
 
     const submit = (e) => {

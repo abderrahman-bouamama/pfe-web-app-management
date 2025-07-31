@@ -13,12 +13,12 @@ return new class extends Migration
 {
    Schema::create('projects', function (Blueprint $table) {
     $table->id();
-    $table->string('title');                // ← titre du projet
-    $table->text('description')->nullable(); // ← description facultative
-    $table->date('start_date');             // ← date de début
-    $table->date('end_date');               // ← date de fin
-    $table->string('status');               // ← statut (En cours, Terminé, etc.)
-    $table->foreignId('responsible_id')->nullable()->constrained('users')->nullOnDelete(); // ← clé étrangère vers users
+    $table->string('title');                
+    $table->text('description')->nullable(); 
+    $table->date('start_date');             
+    $table->date('end_date');             
+    $table->string('status');       
+    $table->foreignId('responsible_id')->nullable()->constrained('users')->nullOnDelete();
     $table->timestamps();
 });
 

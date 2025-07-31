@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AuthenticatedLayout from '@/Pages/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { FaEnvelope, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 

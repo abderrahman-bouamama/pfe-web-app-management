@@ -1,5 +1,5 @@
 import React from "react";
-import PublicLayout from "@/Layouts/PublicLayout";
+import PublicLayout from "@/Pages/Layouts/PublicLayout";
 import ContactSection from "@/Components/ContactSection";
 
 export default function Contact() {

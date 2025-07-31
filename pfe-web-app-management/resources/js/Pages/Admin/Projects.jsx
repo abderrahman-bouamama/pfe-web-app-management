@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Head, usePage, router } from '@inertiajs/react';
-import AdminLayout from '@/Layouts/AdminLayout';
-import CreateProjectForm from './Components/CreateProjectForm';
+import AdminLayout from '@/Pages/Layouts/AdminLayout';
+import { Link } from '@inertiajs/react';
+
 
 const Projects = () => {
-    const { projects, users, clients } = usePage().props; // ✅ importer clients
+    const { projects, users, clients } = usePage().props;
     const [editProject, setEditProject] = useState(null);
     const [confirmDeleteId, setConfirmDeleteId] = useState(null);
 
@@ -31,9 +32,15 @@ const Projects = () => {
             <div className="p-6 max-w-7xl mx-auto">
                 <h1 className="text-2xl font-bold text-gray-800 mb-6">Liste des projets</h1>
 
-                <div className="mb-6">
-                    <CreateProjectForm users={users} clients={clients} />
+                <div className="flex justify-end mb-4">
+                    <Link
+                        href={route('admin.projects.create')} 
+                        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded"
+                    >
+                        + Nouveau projet
+                    </Link>
                 </div>
+
 
                 <div className="overflow-x-auto bg-white shadow rounded-lg">
                     <table className="min-w-full divide-y divide-gray-200">

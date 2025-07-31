@@ -21,6 +21,14 @@ class ProjectController extends Controller
     ]);
 }
 
+public function create()
+{
+    return Inertia::render('Admin/CreateProjectForm', [
+        'users' => User::select('id', 'name')->get(),
+        'clients' => Client::all(),
+    ]);
+}
+
 
     
 public function store(Request $request)
