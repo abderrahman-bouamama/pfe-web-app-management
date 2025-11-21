@@ -1,8 +1,8 @@
-import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import { FaCalendarAlt, FaUmbrellaBeach } from 'react-icons/fa';
 
-export default function AnnualVacation() {
+export default function AnnualVacation({ holidays = [] }) {
     const nationalHolidays = [
         { id: 1, name: "Nouvel An", date: "2025-01-01" },
         { id: 2, name: "Manifeste de l'Indépendance", date: "2025-01-11" },
@@ -24,28 +24,101 @@ export default function AnnualVacation() {
         >
             <Head title="Vacances Annuelles" />
 
-            <div className="p-6 space-y-6">
-                <p className="text-gray-700">Consultez ou demandez vos vacances annuelles ici.</p>
+            <div className="p-6 bg-gray-50 min-h-screen">
+                {/* Header */}
+                <div className="mb-8">
+                    <div>
+                        <h1 className="text-4xl font-bold text-gray-900">Vacances Annuelles</h1>
+                        <p className="text-gray-600 mt-2">Consultez les jours fériés nationaux</p>
+                    </div>
 
-                <div className="bg-white shadow rounded p-4">
-                    <h3 className="text-lg font-bold text-sky-700 mb-4">Jours Fériés Nationaux</h3>
+                    {/* Stats Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+                        <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-500">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-gray-600 text-sm">Total Jours Fériés</p>
+                                    <p className="text-2xl font-bold text-gray-900">{nationalHolidays.length}</p>
+                                </div>
+                                <FaCalendarAlt className="text-3xl text-blue-500" />
+                            </div>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-green-500">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-gray-600 text-sm">Jours Fixes</p>
+                                    <p className="text-2xl font-bold text-gray-900">
+                                        {nationalHolidays.filter(h => !h.date.includes('variable')).length}
+                                    </p>
+                                </div>
+                                <FaCalendarAlt className="text-3xl text-green-500" />
+                            </div>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-500">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-gray-600 text-sm">Jours Variables</p>
+                                    <p className="text-2xl font-bold text-gray-900">
+                                        {nationalHolidays.filter(h => h.date.includes('variable')).length}
+                                    </p>
+                                </div>
+                                <FaUmbrellaBeach className="text-3xl text-purple-500" />
+                            </div>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-yellow-500">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-gray-600 text-sm">Année</p>
+                                    <p className="text-2xl font-bold text-gray-900">2025</p>
+                                </div>
+                                <FaCalendarAlt className="text-3xl text-yellow-500" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <table className="min-w-full table-auto border border-gray-300">
-                        <thead className="bg-sky-100 text-gray-700">
-                            <tr>
-                                <th className="px-4 py-2 text-left">Nom</th>
-                                <th className="px-4 py-2 text-left">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {nationalHolidays.map(holiday => (
-                                <tr key={holiday.id} className="border-t">
-                                    <td className="px-4 py-2">{holiday.name}</td>
-                                    <td className="px-4 py-2">{holiday.date}</td>
+                {/* Holidays Table */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="p-6 border-b border-gray-200">
+                        <h3 className="text-2xl font-bold text-gray-900">Jours Fériés Nationaux 2025</h3>
+                        <p className="text-gray-600 mt-1">Liste complète des jours fériés de l'année</p>
+                    </div>
+
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full divide-y divide-gray-200">
+                            <thead className="bg-gray-50">
+                                <tr>
+                                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Nom du Jour Férié
+                                    </th>
+                                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Date
+                                    </th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200">
+                                {nationalHolidays.map((holiday) => (
+                                    <tr key={holiday.id} className="hover:bg-gray-50 transition-colors">
+                                        <td className="px-6 py-4">
+                                            <div className="flex items-center gap-2">
+                                                <FaCalendarAlt className="text-blue-500" />
+                                                <span className="text-sm font-semibold text-gray-900">{holiday.name}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${
+                                                holiday.date.includes('variable')
+                                                    ? 'bg-purple-100 text-purple-800 border-purple-200'
+                                                    : 'bg-blue-100 text-blue-800 border-blue-200'
+                                            }`}>
+                                                {holiday.date}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </AuthenticatedLayout>

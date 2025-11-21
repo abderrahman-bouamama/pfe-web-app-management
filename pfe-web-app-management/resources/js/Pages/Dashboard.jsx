@@ -26,16 +26,16 @@ export default function Dashboard() {
 
     const tasks = {
         todo: [
-            { id: 1, title: 'Créer design UI', tags: ['#UI', '#client'], progress: 15, users: ['/images/avatar1.png', '/images/avatar2.png'] },
+            { id: 1, title: 'Créer design UI', tags: ['#UI', '#client'], progress: 15, users: ['UI', 'CL'] },
         ],
         inProgress: [
-            { id: 2, title: 'Intégration frontend', tags: ['#frontend'], progress: 45, users: ['/images/avatar3.png'] },
+            { id: 2, title: 'Intégration frontend', tags: ['#frontend'], progress: 45, users: ['FE'] },
         ],
         review: [
-            { id: 3, title: 'Validation technique', tags: ['#QA'], users: ['/images/avatar4.png'] },
+            { id: 3, title: 'Validation technique', tags: ['#QA'], users: ['QA'] },
         ],
         done: [
-            { id: 4, title: 'Déploiement prod', tags: ['#devops'], users: ['/images/avatar1.png', '/images/avatar2.png'] },
+            { id: 4, title: 'Déploiement prod', tags: ['#devops'], users: ['DO', 'PR'] },
         ],
     };
 
@@ -71,8 +71,14 @@ export default function Dashboard() {
                                     )}
 
                                     <div className="flex mt-3 space-x-1">
-                                        {task.users?.map((img, index) => (
-                                            <img key={index} src={img} alt="avatar" className="w-6 h-6 rounded-full border-2 border-white shadow" />
+                                        {task.users?.map((initials, index) => (
+                                            <div
+                                                key={index}
+                                                className="w-6 h-6 rounded-full border-2 border-white shadow bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-xs font-bold"
+                                                title={initials}
+                                            >
+                                                {initials}
+                                            </div>
                                         ))}
                                     </div>
 

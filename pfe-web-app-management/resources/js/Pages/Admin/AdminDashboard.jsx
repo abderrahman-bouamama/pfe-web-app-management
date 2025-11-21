@@ -31,7 +31,7 @@ export default function AdminDashboard() {
                         <p className="text-gray-600 mt-2">Vue d'ensemble de votre plateforme</p>
                     </div>
                     <Link
-                        href={route('admin.projects.index')}
+                        href={route('admin.projects')}
                         className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
                     >
                         <FaChartLine />
